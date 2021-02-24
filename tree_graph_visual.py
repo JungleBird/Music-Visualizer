@@ -229,16 +229,7 @@ def hierarchy_pos(G, root=None, width=1., vert_gap = 0.2, vert_loc = 0, xcenter 
     return _hierarchy_pos(G, root, width, vert_gap, vert_loc, xcenter)
 
 
-filename = 'C:/Users/Escobar/Documents/Audacity/Canon in D - Pachelbel.wav'
-#filename = 'C:/Users/Escobar/Documents/Audacity/Madonna - Like A Prayer (Mono).wav'
-#filename = 'C:/Users/Escobar/Documents/Audacity/Desire - Under Your Spell (Mono).wav'
-#filename = 'C:/Users/Escobar/Documents/Audacity/Nightcore - Careless (Mono).wav'
-#filename = 'C:/Users/Escobar/Documents/Audacity/Nightcore - Sick Of It All (Mono).wav'
-#filename = 'C:/Users/Escobar/Documents/Audacity/Darker Than Black Ending 1.wav'
-#filename = 'C:/Users/Escobar/Documents/Audacity/Blink 182 - All Of This (Mono).wav'
-#filename = 'C:/Users/Escobar/Documents/Audacity/Billie Eilish - Bad Guy (Mono).wav'
-#filename = 'C:/Users/Escobar/Documents/Audacity/Green Day - Whatsername (Mono).wav'
-#filename = 'C:/Users/Escobar/Documents/Audacity/Boogiepop - Boogiepop and Others (Mono).wav'
+filename = 'file path here'
 
 modifier = 2
 chunk = 1024*modifier
