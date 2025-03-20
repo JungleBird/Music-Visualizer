@@ -2,7 +2,4 @@ This is a music visualizer program I built to "express" music as a visible form 
 
 This music visualizer uses statistical analysis techniques and machine learning to process audio data. It learns the music as it plays and the visual elements will grow alongside the music.
 
-This example uses the track "All you had to do was stay" by Taylor Swift.
 https://github.com/user-attachments/assets/f98c43af-6105-4f5a-baab-67d719c3c282
-
-
