@@ -12,15 +12,7 @@ from scipy.spatial.transform import Rotation
 from scipy.ndimage import gaussian_filter1d
 import math
 
-#filename = 'C:/Users/Escobar/Documents/Audacity/Ellie Goulding - Love Me Like You Do (Mono).wav'
-filename = 'C:/Users/jungm/OneDrive/Documents/Audacity/Taylor Swift - All You Had To Do Was Stay (Mono).wav'
-#filename = 'C:/Users/Escobar/Documents/Audacity/Desire - Under Your Spell (Mono).wav'
-#filename = 'C:/Users/Escobar/Documents/Audacity/Madonna - Like A Prayer (Mono).wav'
-#filename = 'C:/Users/Escobar/Documents/Audacity/Canon in D - Pachelbel.wav'
-#filename = 'C:/Users/Escobar/Documents/Audacity/Blink 182 - All Of This (Mono).wav'
-#filename = 'C:/Users/Escobar/Documents/Audacity/Green Day - Whatsername (Mono).wav'
-#filename = 'C:/Users/Escobar/Documents/Audacity/Darker Than Black Ending 1.wav'
-#filename = 'C:/Users/Escobar/Documents/Audacity/Boogiepop - Boogiepop and Others (Mono).wav'
+filename = '[file path to .wav file goes here]'
 
 green = np.array([
             30, 132, 73,
