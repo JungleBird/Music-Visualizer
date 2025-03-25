@@ -21,6 +21,13 @@ green = np.array([
             30, 132, 73
          ],dtype='int16')
 
+teal = np.array([
+            14, 123, 136,
+            14, 123, 136,
+            14, 123, 136,
+            14, 123, 136
+        ],dtype='int16')
+
 orange = np.array([
             255, 102, 25,
             255, 102, 25,
@@ -61,7 +68,7 @@ perlinNoiseData = (perlinNoise.generate_perlin() + 1)
 perlinNoiseData = perlinNoiseData/np.amax(perlinNoiseData)
 
 iterations = 20
-num_components = 4
+num_components = 6
 componentAnalyzer = Component_Analyzer(num_components, iterations)
 
 basis_vector = [6, 9, 6]
@@ -132,6 +139,11 @@ class Visual_Music_Player(pyglet.window.Window):
                         self.grid.activate_black_blocks(dimlight)
 
                 else:
+
+                    parts, energy = self.audio_parser.partition_chunk(fft_data)
+                    indexed_vector = enumerate(parts)
+                    self.grid.activate_blocks(indexed_vector, teal)
+
                     #audio perception is logarithmically scaled
                     #bin sizes start small for lower frequencies and progressively get larger for higher frequencies
                     fft_reduced_0 = self.audio_parser.downsample(fft_data[:148], 2)
@@ -182,13 +194,15 @@ class Visual_Music_Player(pyglet.window.Window):
                             #Convert output layer nodes into quaternion values and rotate the basis vector
                             quaternions = list(map(lambda hidden: Rotation.from_quat(hidden), output_layer))
                             spatial_vectors = list(map(lambda quat: quat.apply(basis_vector), quaternions))
-                            xyz_vectors = list(map(lambda v: [int(v[0]), int(v[1]), v[2]*math.pi/32], spatial_vectors))
+                            xyz_vectors = list(map(lambda v: [int(v[1]), int(v[0]), v[2]*math.pi/64], spatial_vectors))
                             xy_rotated = list(map(lambda xyz: rotate_vector([xyz[0], xyz[1]], xyz[2]), xyz_vectors))
 
                             #Activate blocks on grid
                             for index, xy in enumerate(xy_rotated):
-                                t_data, t_pos = self.surface_geometry.draw_texture(int(xy[0]) + x_offset, int(xy[1]) + y_offset, 3, perlinNoiseData)
-                                self.grid.activate_blocks(t_pos, colors[index], t_data, grid_rate)
+
+                                t_data, t_pos = self.surface_geometry.draw_texture(int(xy[0]) + x_offset, int(xy[1]) + y_offset, 2, perlinNoiseData)
+                                self.grid.activate_blocks(t_pos, colors[index%4], t_data, grid_rate)
+
 
                             #Truncate the feature buffer to avoid re-processing previous features
                             self.feature_buffer = self.feature_buffer[8:]
