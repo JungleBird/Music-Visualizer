@@ -12,7 +12,15 @@ from scipy.spatial.transform import Rotation
 from scipy.ndimage import gaussian_filter1d
 import math
 
-filename = 'file path goes here'
+#filename = 'C:/Users/Escobar/Documents/Audacity/Ellie Goulding - Love Me Like You Do (Mono).wav'
+filename = 'C:/Users/jungm/OneDrive/Documents/Audacity/Taylor Swift - All You Had To Do Was Stay (Mono).wav'
+#filename = 'C:/Users/Escobar/Documents/Audacity/Desire - Under Your Spell (Mono).wav'
+#filename = 'C:/Users/Escobar/Documents/Audacity/Madonna - Like A Prayer (Mono).wav'
+#filename = 'C:/Users/Escobar/Documents/Audacity/Canon in D - Pachelbel.wav'
+#filename = 'C:/Users/Escobar/Documents/Audacity/Blink 182 - All Of This (Mono).wav'
+#filename = 'C:/Users/Escobar/Documents/Audacity/Green Day - Whatsername (Mono).wav'
+#filename = 'C:/Users/Escobar/Documents/Audacity/Darker Than Black Ending 1.wav'
+#filename = 'C:/Users/Escobar/Documents/Audacity/Boogiepop - Boogiepop and Others (Mono).wav'
 
 green = np.array([
             30, 132, 73,
@@ -68,7 +76,8 @@ perlinNoiseData = (perlinNoise.generate_perlin() + 1)
 perlinNoiseData = perlinNoiseData/np.amax(perlinNoiseData)
 
 iterations = 20
-num_components = 6
+num_components = 4
+component_draw_size = 2
 componentAnalyzer = Component_Analyzer(num_components, iterations)
 
 basis_vector = [6, 9, 6]
@@ -76,6 +85,7 @@ x_offset = 16
 y_offset = 16
 grid_rate = 16
 colors = [purple, pink, red, orange]
+colorPaletteSize = len(colors)
 
 def rotate_vector(v,theta):
     c, s = np.cos(theta), np.sin(theta)
@@ -200,8 +210,8 @@ class Visual_Music_Player(pyglet.window.Window):
                             #Activate blocks on grid
                             for index, xy in enumerate(xy_rotated):
 
-                                t_data, t_pos = self.surface_geometry.draw_texture(int(xy[0]) + x_offset, int(xy[1]) + y_offset, 2, perlinNoiseData)
-                                self.grid.activate_blocks(t_pos, colors[index%4], t_data, grid_rate)
+                                t_data, t_pos = self.surface_geometry.draw_texture(int(xy[0]) + x_offset, int(xy[1]) + y_offset, component_draw_size, perlinNoiseData)
+                                self.grid.activate_blocks(t_pos, colors[index%colorPaletteSize], t_data, grid_rate)
 
 
                             #Truncate the feature buffer to avoid re-processing previous features
