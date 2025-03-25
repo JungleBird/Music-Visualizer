@@ -68,7 +68,7 @@ perlinNoiseData = (perlinNoise.generate_perlin() + 1)
 perlinNoiseData = perlinNoiseData/np.amax(perlinNoiseData)
 
 iterations = 20
-num_components = 4
+num_components = 6
 component_draw_size = 2
 componentAnalyzer = Component_Analyzer(num_components, iterations)
 
