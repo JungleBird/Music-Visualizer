@@ -40,9 +40,6 @@ https://databricks.com/blog/2019/04/30/understanding-dynamic-time-warping.html
 
 ***An example of the feature/temporal components produced by matrix factorization***
 
-Results of using Non-Negative Matrix Factorization on an audio chunk:
-Left side represents “feature” components. Right side represents "temporal" components.
-
 <img width="691" height="535" alt="Screenshot 2026-02-01 223151" src="https://github.com/user-attachments/assets/b563e621-24bd-40b8-9de0-33ddb8d6db0b" />
 
 <img width="611" height="451" alt="Screenshot 2026-02-01 223458" src="https://github.com/user-attachments/assets/f13b316b-a90c-4b5d-921b-14556b3b5609" />
